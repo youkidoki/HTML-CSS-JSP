@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="todo-app">
+        <header>
+            <h1 class="title">체중 기록</h1>
+            <div class="add-todo">
+                <input type="text" name="taskName" id="taskName">
+                <button id="addTask">추가</button>
+            </div>
+        </header>
+        <main>
+            <div class="todo-container">
+                <ul>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script>
+        let todoList = [];
+        let todoID = 0;
+        // UL Element
+        let ULobj = document.querySelector("div.todo-container > ul");
+        function addTask(){
+            // Input에 입력된 내용 가져오는 부분
+            let taskNameObj = document.getElementById('taskName'); // Input Obj
+            let todoName = taskNameObj.value;
+            
+            //아이템 추가
+            let newItem = document.createElement("li");
+
+            let span = document.createElement("span");
+            span.innerText = todoName;  // 입력된 todo의 제목
+            newItem.appendChild(span);
+            // <li>
+            //   <input type='checkbox'>
+            //   <span>todoName</span>
+            // </li>
+            newItem.addEventListener('click',updateTodo);
+
+            todoID = todoID + 1;
+            newItem.setAttribute('data-id',todoID);
+            ULobj.appendChild(newItem);
+            
+            todoList.push({
+                name: todoName,
+                id: todoID,
+                isDone: false
+            });
+
+            taskNameObj.value = ""; // Input의 내용 지우기
+        }
+        function updateTodo(event){
+            let obj = event.currentTarget; 
+            let dataID = obj.getAttribute('data-id');
+            for (i in todoList){
+                if (todoList[i].id == dataID){
+                    let checkObj = obj.children[0]; // Checkbox
+                    if (todoList[i].isDone) {
+                        // 기존엔 완료
+                        checkObj.checked = false;
+                        // checkbox는 해제
+                    } else {
+                        // 기존엔 미완료
+                        // checkbox는 설정
+                        checkObj.checked = true;
+                    }
+                    break;
+                }
+            }
+            obj.classList.toggle('done');
+        }
+
+        document.getElementById('addTask')
+                .addEventListener('click', addTask );
+        document.getElementById('taskName')
+                .addEventListener('keydown', function(event) {
+                    if (event.keyCode == 13) { // 입력창에서 엔터를 쳤을때                        
+                        addTask();
+                    }
+                });
+
+
+    </script>
+</body>
+</html>

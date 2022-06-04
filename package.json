@@ -1,0 +1,22 @@
+{
+  "name": "webprogramming",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youkidoki/HTML-CSS-JSP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youkidoki/HTML-CSS-JSP/issues"
+  },
+  "homepage": "https://github.com/youkidoki/HTML-CSS-JSP#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
