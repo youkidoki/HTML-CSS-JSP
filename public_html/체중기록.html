@@ -1,93 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="style.css" rel="stylesheet">
+    <style>
+        h1 {
+            font-size: 40px;
+            margin: 5px;
+            padding-top: 40px;
+        }
+
+        .top,
+        h1 {
+            text-align: center;
+            background-color: rgb(87, 250, 209);
+        }
+
+        .middle {
+            padding-bottom: 40px;
+        }
+
+        input {
+            border-radius: 30px;
+            width: 70%;
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        button {
+            background-color: #ddd;
+            color: black;
+            padding: 16px 32px;
+            font-size: 16px;
+            margin: 4px 2px;
+        }
+
+        input,
+        button {
+            border: none;
+        }
+
+        button:hover {
+            color: white;
+        }
+
+        span {
+            font-size: 34px;
+            float: left;
+            margin-left: 10px;
+            margin-top: 5px;
+            width: 88%;
+        }
+
+        span:hover,
+        button:hover {
+            background-color: rgba(128, 128, 128, 0.479);
+
+        }
+
+        #done span {
+            width: 93.5%;
+        }
+
+        span,
+        button {
+            transition: 0.5s;
+            cursor: pointer;
+        }
+
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        #list,
+        #done {
+            animation: open .5s ease-in-out;
+        }
+
+        @keyframes open {
+            0% {
+                opacity: 0;
+                margin-top: -20px
+            }
+
+            100% {
+                opacity: 1;
+                margin-top: 0px
+            }
+        }
+
+        @media all and (min-width:720px) and (max-width:1024px) {
+
+            span {
+                width: 75%;
+            }
+
+            #done span {
+                width: 85%;
+            }
+        }
+
+        @media all and (max-width:720px) {
+
+            span {
+                width: 55%;
+            }
+
+            #done span {
+                width: 70%;
+            }
+
+        }
+    </style>
 </head>
 <body>
-    <div class="todo-app">
-        <header>
-            <h1 class="title">체중 기록</h1>
-            <div class="add-todo">
-                <input type="text" name="taskName" id="taskName">
-                <button id="addTask">추가</button>
+    <details open>
+        <summary>
+            <div class="top">
+                <h1>체중기록</h1>
+                <input type="text" id="input" placeholder="??kg"
+                    onKeypress="javascript:if(event.keyCode==13) click_event();">
+                <button type="button" class="fas fa-plus" onclick="click_event();"></button>
             </div>
-        </header>
-        <main>
-            <div class="todo-container">
-                <ul>
-                </ul>
-            </div>
-        </main>
-    </div>
-    <script>
-        let todoList = [];
-        let todoID = 0;
-        // UL Element
-        let ULobj = document.querySelector("div.todo-container > ul");
-        function addTask(){
-            // Input에 입력된 내용 가져오는 부분
-            let taskNameObj = document.getElementById('taskName'); // Input Obj
-            let todoName = taskNameObj.value;
-            
-            //아이템 추가
-            let newItem = document.createElement("li");
-
-            let span = document.createElement("span");
-            span.innerText = todoName;  // 입력된 todo의 제목
-            newItem.appendChild(span);
-            // <li>
-            //   <input type='checkbox'>
-            //   <span>todoName</span>
-            // </li>
-            newItem.addEventListener('click',updateTodo);
-
-            todoID = todoID + 1;
-            newItem.setAttribute('data-id',todoID);
-            ULobj.appendChild(newItem);
-            
-            todoList.push({
-                name: todoName,
-                id: todoID,
-                isDone: false
-            });
-
-            taskNameObj.value = ""; // Input의 내용 지우기
-        }
-        function updateTodo(event){
-            let obj = event.currentTarget; 
-            let dataID = obj.getAttribute('data-id');
-            for (i in todoList){
-                if (todoList[i].id == dataID){
-                    let checkObj = obj.children[0]; // Checkbox
-                    if (todoList[i].isDone) {
-                        // 기존엔 완료
-                        checkObj.checked = false;
-                        // checkbox는 해제
-                    } else {
-                        // 기존엔 미완료
-                        // checkbox는 설정
-                        checkObj.checked = true;
-                    }
-                    break;
-                }
-            }
-            obj.classList.toggle('done');
-        }
-
-        document.getElementById('addTask')
-                .addEventListener('click', addTask );
-        document.getElementById('taskName')
-                .addEventListener('keydown', function(event) {
-                    if (event.keyCode == 13) { // 입력창에서 엔터를 쳤을때                        
-                        addTask();
-                    }
-                });
-
-
-    </script>
+        </summary>
+        <div id="list"></div>
+    </details>
 </body>
+<script type="text/javascript" src="public_html\체중기록.js"></script>
+<script src="https://kit.fontawesome.com/f1fb370a81.js" crossorigin="anonymous"></script>
 </html>

@@ -1,22 +1,61 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
+    <style>
+        * { background-color: aliceblue;}
+        .main {
+            width: 250px;
+            height: 300px;
+            display: flex;
+            margin: auto;
+            align-items: center;
+            flex-direction: column;
+            border: 1px solid lightgrey;
+        }
+
+        .logo {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        #login {
+            width: 100%;
+            background-color: skyblue;
+            color: white;
+            ;
+        }
+
+        .account {
+            display: block;
+            margin-bottom: 3px;
+            padding: 3px;
+            border: 1px solid lightgray;
+            border-radius: 3px;
+        }
+
+        #alert {
+            border-color: transparent;
+        }
+    </style>
+<script src="public_html\로그인.js"></script>
 </head>
+
 <body>
-    <ul>
-        <li>
-            <label for="user_id">아이디(6자 이상)</label>
-            <input type="text" id="user_id">
-        </li>
-        <li>
-            <label for="user_pw">비밀번호(6자이상)</label>
-            <input type="password" id="user_pw">
-        </li>
-    </ul>
-    <input type="submit" value="로그인">
+    <div class="main">
+        <h2 class="logo">멋쟁이</h2>
+        <div class="container">
+            <input type="text" placeholder="ID" id="id" class="account">
+            <input type="password" placeholder="Password" id="password" class="account">
+            <button id="login" class="account">login</button>
+            <p id="alert" class="account"> </p>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
