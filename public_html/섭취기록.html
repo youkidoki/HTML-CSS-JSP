@@ -6,10 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        * { background-color: aliceblue;}
+        caption { 
+            background-color: greenyellow;
+            border-radius: 5px;
+            font-size: 20px;
+            font-style: italic;
+        }
+        
+    </style>
+    <script>
+        function addFood(id) {
+            let taskName = prompt('무엇을 드셨나요?');
+            let obj = document.createElement('li');
+            obj.innerHTML = taskName;
+            document.querySelector
+                ('#'+ id).appendChild(obj);
+        };
+    </script>
 </head>
 <body>
     <table border="1" width="90%" height="300" cellspacing="5">
-        <caption>섭취기록</caption>
+        <caption>일주일 식단 기록</caption>
         <thead>
             <tr align="center" bgcolor="white">
                 <td></td>
@@ -26,33 +45,33 @@
         <tbody>
             <tr align="center" bgcolor="white">
                 <td>아침</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="mon_brk"><a href='#' onclick='addFood("mon_brk");'>기록</a><br><ul></ul></td>
+                <td id="tue_brk"><a href='#' onclick='addFood("tue_brk");'>기록</a><br><ul></ul></td>
+                <td id="wed_brk"><a href='#' onclick='addFood("wed_brk");'>기록</a><br><ul></ul></td>
+                <td id="tur_brk"><a href='#' onclick='addFood("tur_brk");'>기록</a><br><ul></ul></td>
+                <td id="fri_brk"><a href='#' onclick='addFood("fri_brk");'>기록</a><br><ul></ul></td>
+                <td id="sat_brk"><a href='#' onclick='addFood("sat_brk");'>기록</a><br><ul></ul></td>
+                <td id="sun_brk"><a href='#' onclick='addFood("sun_brk");'>기록</a><br><ul></ul></td>
             </tr>
             <tr align="center" bgcolor="white">
                 <td>점심</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="mon_lun"><a href='#' onclick='addFood("mon_lun");'>기록</a><br><ul></ul></td>
+                <td id="tue_lun"><a href='#' onclick='addFood("tue_lun");'>기록</a><br><ul></ul></td>
+                <td id="wed_lun"><a href='#' onclick='addFood("wed_lun");'>기록</a><br><ul></ul></td>
+                <td id="tur_lun"><a href='#' onclick='addFood("tur_lun");'>기록</a><br><ul></ul></td>
+                <td id="fri_lun"><a href='#' onclick='addFood("fri_lun");'>기록</a><br><ul></ul></td>
+                <td id="sat_lun"><a href='#' onclick='addFood("sat_lun");'>기록</a><br><ul></ul></td>
+                <td id="sun_lun"><a href='#' onclick='addFood("sun_lun");'>기록</a><br><ul></ul></td>
             </tr>
             <tr align="center" bgcolor="white">
                 <td>저녁</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td id="mon_din"><a href='#' onclick='addFood("mon_din");'>기록</a><br><ul></ul></td>
+                <td id="tue_din"><a href='#' onclick='addFood("tue_din");'>기록</a><br><ul></ul></td>
+                <td id="wed_din"><a href='#' onclick='addFood("wed_din");'>기록</a><br><ul></ul></td>
+                <td id="tur_din"><a href='#' onclick='addFood("tur_din");'>기록</a><br><ul></ul></td>
+                <td id="fri_din"><a href='#' onclick='addFood("fri_din");'>기록</a><br><ul></ul></td>
+                <td id="sat_din"><a href='#' onclick='addFood("sat_din");'>기록</a><br><ul></ul></td>
+                <td id="sun_din"><a href='#' onclick='addFood("sun_din");'>기록</a><br><ul></ul></td>
             </tr>
         </tbody>
     </table>
