@@ -12,26 +12,19 @@
         function click_event() {
             var add = document.getElementById("input").value;
 
-            /* 어떠한 글도 입력하지않을 경우 */
             if (!add) {
                 alert('몸무게를 입력해주세요')
             }
             else {
-                /* 글 추가 기능 */
                 additional(add, i, 'node', 'list');
-                /* 완료 버튼 */
                 doneBotton(i);
-                /* 제거 버튼 생성 */
                 removeButton(i);
-                /*개행 처리 태그*/
                 Next(i, 'br', 'list');
                 i++;
             }
         }
 
-        /* 글 추가 기능 및 수정 */
         function additional(text, n, id, spot) {
-            /* 입력한 값 SPAN 태그로 추가하기*/
             var node = document.createElement("SPAN");
             var textnode = document.createTextNode(text);
             node.id = id + n;
@@ -45,17 +38,14 @@
         }
 
 
-        /* 글 수정 */
         function modify(spot) {
             var value = prompt("몸무게 수정", "수정하시겠습니까?");
 
-            /* 수정하는 글에 어떠한 내용도 넣지않는다면 기존의 글 유지 */
             if (value) {
                 document.getElementById(spot).innerHTML = value;
             }
         }
 
-        /* br 태그 생성 */
         function Next(n, id, spot) {
             var br = document.createElement("BR");
             br.id = id + n;
